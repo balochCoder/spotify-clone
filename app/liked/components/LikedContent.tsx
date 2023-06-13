@@ -3,13 +3,14 @@ import React from 'react';
 import {Song} from "@/types";
 import MediaItem from "@/components/MediaItem";
 import LikeButton from "@/components/LikeButton";
+import useOnPlay from "@/hooks/useOnPlay";
 
 interface LikedContentProps {
     songs: Song[];
 };
-const LikedContent:React.FC<LikedContentProps> = ({songs}) => {
+const LikedContent: React.FC<LikedContentProps> = ({songs}) => {
 
-
+    const onPlay = useOnPlay(songs);
     if (songs.length === 0) {
         return (
             <div className="flex flex-col gap-y-2 w-full px-6 text-neutral-400">
@@ -25,9 +26,9 @@ const LikedContent:React.FC<LikedContentProps> = ({songs}) => {
                     className="flex items-center gap-x-4 w-full"
                 >
                     <div className="flex-1">
-                        <MediaItem onClick={()=>{}} data={song} />
+                        <MediaItem onClick={(id: string) => onPlay(id)} data={song}/>
                     </div>
-                    <LikeButton songId={song.id} />
+                    <LikeButton songId={song.id}/>
                 </div>
             ))}
         </div>
