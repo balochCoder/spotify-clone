@@ -1,7 +1,10 @@
 "use client";
 import React from 'react';
-import {Song} from "@/types";
+
 import SongItem from "@/components/SongItem";
+
+import {Song} from "@/types";
+
 import useOnPlay from "@/hooks/useOnPlay";
 
 interface PageContentProps {

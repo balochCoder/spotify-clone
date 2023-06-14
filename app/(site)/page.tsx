@@ -1,14 +1,18 @@
 import React from 'react';
 
+import PageContent from "@/app/(site)/components/PageContent";
+
 import Header from "@/components/Header";
 import ListItem from "@/components/ListItem";
+
 import getSongs from "@/actions/getSongs";
-import PageContent from "@/app/(site)/components/PageContent";
+
 
 export const revalidate = 0;
 
 const Home = async () => {
     const songs = await getSongs();
+
     return (
         <div className="bg-neutral-900 rounded-lg h-full w-full overflow-hidden overflow-y-auto">
             <Header>
